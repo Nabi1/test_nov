@@ -1,5 +1,5 @@
 import React from "react";
-import { Users } from "./icons/Users";
+import { Users } from "../../icons/Users";
 
 export function Tabs({ label }: { label: string }) {
   return (

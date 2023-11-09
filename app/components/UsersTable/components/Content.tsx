@@ -1,9 +1,9 @@
 import React from "react";
 import Image from "next/image";
 
-import { Tabs } from "../Tabs";
-import { User } from "../../types";
-import { Dots } from "../icons/Dots";
+import { Tabs } from "./Tabs";
+import { User } from "../../../types";
+import { Dots } from "../../icons/Dots";
 
 export const Content = ({
   users,

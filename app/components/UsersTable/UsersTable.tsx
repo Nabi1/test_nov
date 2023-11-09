@@ -1,7 +1,7 @@
 import React from "react";
 
-import { Content } from "./Content";
-import { Head } from "./Head";
+import { Content } from "./components/Content";
+import { Head } from "./components/Head";
 import { User } from "../../types";
 
 export const UsersTable = ({
