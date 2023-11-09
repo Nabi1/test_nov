@@ -9,7 +9,7 @@ export const UsersTable = ({
   users,
 }: {
   selectedGroups: string[];
-  users: User[];
+  users?: User[];
 }) => {
   return (
     <div className="flex flex-col gap-4 lg:flex-row shadow-lg rounded-lg w-[80vw] h-fit	overflow-x-auto mt-4 lg:mt-0 max-h-[90vh]">

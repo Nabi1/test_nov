@@ -17,11 +17,15 @@ export default function Home() {
 
   const { data: users } = useSWR<User[]>(mockDataUrl, fetcher);
 
-  const getUniqueGroupsFromUsers = (users: User[]) => {
+  const getUniqueGroupsFromUsers = (users?: User[]) => {
     const allGroups = users?.flatMap((user: User) => user.groups) ?? [];
-    const uniqueGroups = allGroups.reduce((unique, item) => {
-      return unique.includes(item) ? unique : [...unique, item];
-    }, []);
+    const uniqueGroups: string[] = [];
+
+    allGroups.forEach((group) => {
+      if (!uniqueGroups.includes(group)) {
+        uniqueGroups.push(group);
+      }
+    });
 
     return uniqueGroups;
   };

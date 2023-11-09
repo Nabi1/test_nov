@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 
 const ALL = "All";
+
 export function Checkboxes({
   allGroups,
   onFilterChange,
@@ -12,27 +13,7 @@ export function Checkboxes({
   searchQuery: string;
   onFilterChange: (selectedGroups: string[]) => void;
 }) {
-  // const [searchQuery, setSearchQuery] = useState<string>("");
   const [selectedGroups, setSelectedGroups] = useState<string[]>(allGroups);
-
-  useEffect(() => {
-    const filteredGroups = allGroups.filter((group) =>
-      group.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-
-    // Déterminez les groupes actuellement sélectionnés qui sont toujours valides après la recherche
-    const validSelectedGroups = selectedGroups.filter((group) =>
-      filteredGroups.includes(group)
-    );
-
-    // Vérifiez si les groupes sélectionnés ont changé, sinon ne faites rien pour éviter la boucle infinie
-    if (
-      validSelectedGroups.length !== selectedGroups.length ||
-      filteredGroups.length === 0
-    ) {
-      setSelectedGroups(validSelectedGroups);
-    }
-  }, [searchQuery]);
 
   useEffect(() => {
     onFilterChange(selectedGroups);

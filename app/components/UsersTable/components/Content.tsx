@@ -10,21 +10,19 @@ export const Content = ({
   selectedGroups,
 }: {
   selectedGroups: string[];
-  users: User[];
+  users?: User[];
 }) => {
-  // Filtrer les utilisateurs en fonction des groupes sélectionnés
   const filteredUsers = users?.filter((user) => {
     if (selectedGroups.length === 0) {
-      return true; // Aucun filtre, afficher tous les utilisateurs
+      return true;
     }
-    // Vérifier si l'utilisateur a au moins un groupe sélectionné
     return user.groups.some((group) => selectedGroups.includes(group));
   });
 
   return (
     <tbody className="bg-white divide-y divide-gray-200">
       {filteredUsers?.map((user) => (
-        <tr key={user.id}>
+        <tr key={`${user.name}-${user.id}`}>
           <td className="px-6 py-4 whitespace-nowrap">
             <div className="flex gap-3 items-center">
               <Image
